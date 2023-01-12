@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-from scrapping_diesel import consultar_preco
+# from scrapping_diesel import consultar_preco
 import locale
 import pandas as pd
 # import seaborn as sns
