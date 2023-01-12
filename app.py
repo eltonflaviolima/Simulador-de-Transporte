@@ -5,7 +5,7 @@ import locale
 import pandas as pd
 # import seaborn as sns
 
-locale.setlocale(locale.LC_MONETARY, 'pt_BR.UTF-8')
+# locale.setlocale(locale.LC_MONETARY, 'pt_BR.UTF-8')
 
 with st.sidebar:
 
@@ -49,10 +49,10 @@ with st.container():
                 tarifa_diesel_cenario = (distancia_cenario / media_consumo_cenario) * custo_diesel / volume_por_veiculo_cenario
                 
                 # st.metric(label='Diesel Atual', 
-                #         value=locale.currency(tarifa_diesel_atual))
+                #         value="% .2f" % (tarifa_diesel_atual))
                 
                 st.metric(label='Diesel / Ton', 
-                        value=locale.currency(tarifa_diesel_cenario), 
+                        value="% .2f" % (tarifa_diesel_cenario), 
                         delta="% .2f" % (tarifa_diesel_cenario - tarifa_diesel_atual),
                         delta_color='inverse')
                 
@@ -61,10 +61,10 @@ with st.container():
                 # tarifa_tonelada_atual = frete_cenario / volume_por_veiculo_cenario 
                 
                 # st.metric(label='Frete ', 
-                #         value=locale.currency(tarifa_tonelada_atual))
+                #         value="% .2f" % (tarifa_tonelada_atual))
                 
                 st.metric(label='Tarifa / Ton', 
-                        value=locale.currency(tarifa_tonelada_atual),
+                        value="% .2f" % (tarifa_tonelada_atual),
                         delta="% .2f" % (tarifa_tonelada_atual - tarifa_tonelada_atual),
                         delta_color='inverse')
                 
@@ -73,10 +73,10 @@ with st.container():
                 pedagio_atual = (pedagio_por_eixo * (9 + 7)) / volume_por_veiculo_atual
                 pedagio_cenario = (pedagio_total_por_tonelada * (qtd_eixos_ida + qtd_eixos_retorno)) / volume_por_veiculo_cenario
                 # st.metric(label='Pedágio', 
-                #         value=locale.currency(pedagio_atual))
+                #         value="% .2f" % (pedagio_atual))
                 
                 st.metric(label='Pedágio / Ton', 
-                        value=locale.currency(pedagio_cenario),
+                        value="% .2f" % (pedagio_cenario),
                         delta="% .2f" % (pedagio_cenario - pedagio_atual),
                         delta_color='inverse')
 
@@ -85,10 +85,10 @@ with st.container():
                 total_atual = tarifa_diesel_atual + tarifa_tonelada_atual + pedagio_atual
                 total_cenario = tarifa_diesel_cenario + tarifa_tonelada_atual + pedagio_cenario
                 # st.metric(label='Total', 
-                #         value=locale.currency(total_atual))
+                #         value="% .2f" % (total_atual))
         
                 st.metric(label='Total / Ton', 
-                        value=locale.currency(total_cenario),
+                        value="% .2f" % (total_cenario),
                         delta="% .2f" % (total_cenario - total_atual),
                         delta_color='inverse')
 
